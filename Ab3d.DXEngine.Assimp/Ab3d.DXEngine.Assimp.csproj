@@ -37,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Ab3d.DXEngine.Assimp.xml</DocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ab3d.DXEngine, Version=4.4.7874.2045, Culture=neutral, PublicKeyToken=d45c8e156fba2841, processorArchitecture=MSIL">
