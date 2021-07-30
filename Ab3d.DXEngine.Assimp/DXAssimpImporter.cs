@@ -19,6 +19,9 @@ using Silk.NET.Assimp;
 
 namespace Ab3d.DirectX
 {
+    /// <summary>
+    /// DXAssimpImporter can import 3D models from many 3D file formats into SceneNode objects for Ab3d.DXEngine rendering engine.
+    /// </summary>
     public unsafe class DXAssimpImporter : IDisposable
     {
         private Assimp _assimp;
@@ -34,7 +37,9 @@ namespace Ab3d.DirectX
 
         private DXDevice _dxDevice;
 
-
+        /// <summary>
+        /// Gets the DXAssimpConverter that was used to convert assimp scene into SceneNode objects.
+        /// </summary>
         public DXAssimpConverter AssimpConverter { get; private set; }
 
         /// <summary>
@@ -107,6 +112,9 @@ namespace Ab3d.DirectX
         private static AssimpFormatInfo[] _supportedImportFormats;
         private static string[] _supportedImportFileExtensions;
 
+        /// <summary>
+        /// Gets an array of <see cref="AssimpFormatInfo"/> that provide detailed information on supported import file formats.
+        /// </summary>
         public AssimpFormatInfo[] SupportedImportFormats
         {
             get
@@ -118,6 +126,9 @@ namespace Ab3d.DirectX
             }
         }
         
+        /// <summary>
+        /// Gets an array of supported file extensions for importing (file extension are written without star and dot as prefix, g.e. "fxb", "obj", etc.
+        /// </summary>
         public string[] SupportedImportFileExtensions
         {
             get
@@ -131,6 +142,10 @@ namespace Ab3d.DirectX
 
         #endregion
 
+        /// <summary>
+        /// Constructor that uses default texture loader and requires DXDevice as parameter
+        /// </summary>
+        /// <param name="dxDevice">DXDevice that is used to create textures</param>
         public DXAssimpImporter(DXDevice dxDevice)
         {
             if (dxDevice == null)
@@ -145,6 +160,10 @@ namespace Ab3d.DirectX
             AssimpConverter = new DXAssimpConverter(DefaultAssimpTextureLoader);
         }
 
+        /// <summary>
+        /// Constructor that uses custom texture loader.
+        /// </summary>
+        /// <param name="textureLoader">custom texture loader</param>
         public DXAssimpImporter(DXAssimpConverter.TextureLoaderDelegate textureLoader)
         {
             if (textureLoader == null) 

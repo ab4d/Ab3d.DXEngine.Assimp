@@ -18,6 +18,9 @@ using Point = System.Windows.Point;
 
 namespace Ab3d.DirectX
 {
+    /// <summary>
+    /// DXAssimpConverter class provides method that can convert native assimp Scene object into Ab3d.DXEngine objects.
+    /// </summary>
     public class DXAssimpConverter
     {
         private SimpleMesh<PositionNormalTexture>[] _allMeshes;
@@ -79,7 +82,9 @@ namespace Ab3d.DirectX
         /// </summary>
         public Dictionary<string, object> NamedObjects { get; private set; }
 
-
+        /// <summary>
+        /// Specifies the used texture loader
+        /// </summary>
         public readonly TextureLoaderDelegate TextureLoader;
 
 
@@ -96,6 +101,10 @@ namespace Ab3d.DirectX
 
 
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="textureLoader">TextureLoaderDelegate</param>
         public DXAssimpConverter(TextureLoaderDelegate textureLoader)
         {
             UseSimpleTriangulation = false;
@@ -104,6 +113,11 @@ namespace Ab3d.DirectX
             TextureLoader = textureLoader;
         }
 
+        /// <summary>
+        /// ConvertAssimpScene converts the specified native assimp Scene object and converts it into Ab3d.DXEngine objects returning the root SceneNode object.
+        /// </summary>
+        /// <param name="assimpScene"></param>
+        /// <returns></returns>
         public unsafe SceneNode ConvertAssimpScene(Scene* assimpScene)
         {
             if (assimpScene == null)
