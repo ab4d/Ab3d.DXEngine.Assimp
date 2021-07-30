@@ -1,6 +1,6 @@
 # Ab3d.DXEngine.Assimp
 
-Ab3d.DXEngine.Assimp library can be used to **import 3D models from many 3D file formats** with Assimp importer library into Ab3d.DXEngine's objects.
+Ab3d.DXEngine.Assimp **provides importing 3D models from many 3D file formats** for Ab3d.DXEngine rendering engine (using native [Assimp importer](https://github.com/assimp/assimp)).
 
 [Ab3d.DXEngine](https://www.ab4d.com/DXEngine.aspx) is a super fast DirectX 11 rendering engine for Desktop .Net applications. Ab3d.DXEngine is built for advanced business and scientific 3D visualization.
 
@@ -23,7 +23,7 @@ The samples for Ab3d.DXEngine can be found in the [Ab3d.DXEngine.Wpf.Samples](ht
 ## Known issues
 
 * **Only 64 bit process** is supported because the Silk.NET.Assimp does not correctly call assimp function when using 32 bit process.
-* Silk.NET.Assimp depends on Ultz.Native.Assimp library that should copy the native assimp library into the application's output folder. But this works only for .Net Core and .Net 5.0 project and not for .Net Framework project. Therefore 
+* Silk.NET.Assimp depends on Ultz.Native.Assimp library that should copy the native assimp library into the application's output folder. But this works only for .Net Core and .Net 5.0 project and not for .Net Framework project. To solve that the sample for .Net framework project manually copies the native Assimp library dll to output folder.
 
 
 ## Repository projects
@@ -51,6 +51,11 @@ The Ab3d.DXEngine.Assimp library uses the following dependencies:
 
 In addition to the dependencies above, the The Ab3d.DXEngine.Assimp.Samples project uses the following dependencies:
 * Ab3d.PowerToys - The ultimate WPF 3D helper library - https://www.nuget.org/packages/Ab3d.PowerToys
+
+
+Assimp.NET assembly that is present in the libs folder.
+
+Native assimp importer library. The source can be get from [Assimp on GitHub](https://github.com/assimp/assimp). The compiled binaries for Windows can be get from the [Ab3d.PowerToys.Wpf.Samples](https://github.com/ab4d/Ab3d.PowerToys.Wpf.Samples) project.
 
 
 ## See also
