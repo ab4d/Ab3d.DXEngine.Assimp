@@ -1,0 +1,101 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Ab3d.DXEngine.Assimp.Samples</AssemblyName>
+    <RootNamespace>Ab3d.DXEngine.Assimp.Samples</RootNamespace>
+    <Version>1.0.7876</Version>
+    <AssemblyVersion>1.0.7876.2050</AssemblyVersion>
+    <FileVersion>1.0.7876.2050</FileVersion>    
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ab3d.DXEngine" Version="4.4.7874" />
+    <PackageReference Include="Ab3d.DXEngine.Wpf" Version="4.4.7874" />
+    <PackageReference Include="Ab3d.PowerToys" Version="9.6.7848" />
+    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+    <PackageReference Include="Silk.NET.Assimp" Version="2.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assimp64.dll" />
+    <None Remove="packages.config" />
+    <None Remove="Resources\dragon_vrip_res3.obj" />
+    <None Remove="Resources\dragon_vrip_res3.obj.mtl" />
+    <None Remove="Resources\dragon_vrip_res3_readme.txt" />
+    <None Remove="Resources\duck.dae" />
+    <None Remove="Resources\duckCM.png" />
+    <None Remove="Resources\planetary-gear.FBX" />
+    <None Remove="Resources\ship_boat.mtl" />
+    <None Remove="Resources\ship_boat.obj" />
+    <None Remove="Resources\ship_boat_readme.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\dragon_vrip_res3.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\dragon_vrip_res3.obj.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\dragon_vrip_res3_readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\duck.dae">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\duckCM.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\planetary-gear.FBX">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ship_boat.mtl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ship_boat.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ship_boat_readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.net50.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

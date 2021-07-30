@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ab3d.DXEngine.Assimp", "Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.csproj", "{D1135B39-38BA-4CA5-96F4-2A3FC60C341B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ab3d.DXEngine.Assimp.Sample", "Ab3d.DXEngine.Assimp.Sample\Ab3d.DXEngine.Assimp.Sample.net48.csproj", "{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1135B39-38BA-4CA5-96F4-2A3FC60C341B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1135B39-38BA-4CA5-96F4-2A3FC60C341B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1135B39-38BA-4CA5-96F4-2A3FC60C341B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1135B39-38BA-4CA5-96F4-2A3FC60C341B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {762E498D-FA55-4958-97BC-63F8CE01C27E}
+	EndGlobalSection
+EndGlobal
