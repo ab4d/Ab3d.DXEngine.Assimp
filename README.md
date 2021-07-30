@@ -53,11 +53,6 @@ In addition to the dependencies above, the The Ab3d.DXEngine.Assimp.Samples proj
 * Ab3d.PowerToys - The ultimate WPF 3D helper library - https://www.nuget.org/packages/Ab3d.PowerToys
 
 
-Assimp.NET assembly that is present in the libs folder.
-
-Native assimp importer library. The source can be get from [Assimp on GitHub](https://github.com/assimp/assimp). The compiled binaries for Windows can be get from the [Ab3d.PowerToys.Wpf.Samples](https://github.com/ab4d/Ab3d.PowerToys.Wpf.Samples) project.
-
-
 ## See also
 
 * [AB4D Homepage](https://www.ab4d.com/)
