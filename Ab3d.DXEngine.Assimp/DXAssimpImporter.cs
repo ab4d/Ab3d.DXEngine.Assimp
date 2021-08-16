@@ -146,14 +146,15 @@ namespace Ab3d.DirectX
         /// Constructor that uses default texture loader and requires DXDevice as parameter
         /// </summary>
         /// <param name="dxDevice">DXDevice that is used to create textures</param>
-        public DXAssimpImporter(DXDevice dxDevice)
+        /// <param name="assimpApi">optional Assimp API that is used for this DXAssimpImporter. When null then teh default Assimp API that is provided by Silk.Net.Assimp is used.</param>
+        public DXAssimpImporter(DXDevice dxDevice, Silk.NET.Assimp.Assimp assimpApi = null)
         {
             if (dxDevice == null)
                 throw new ArgumentNullException(nameof(dxDevice));
 
             _dxDevice = dxDevice;
 
-            _assimp = Silk.NET.Assimp.Assimp.GetApi();
+            _assimp = assimpApi ?? Silk.NET.Assimp.Assimp.GetApi();
 
             AssimpPostProcessSteps = PostProcessSteps.FlipUVs | PostProcessSteps.GenerateSmoothNormals | PostProcessSteps.Triangulate;
 
@@ -244,7 +245,6 @@ namespace Ab3d.DirectX
             //    usedPostProcessSteps = usedPostProcessSteps & ~PostProcessSteps.Triangulate; // When we are reading edge lines, we need to prevent Triangulate post process step
 
             Scene* assimpScene;
-
 
             try
             {

@@ -76,6 +76,16 @@ namespace Ab3d.DXEngine.Assimp.Samples
             {
                 try
                 {
+                    //// Using custom Assimp native library:
+                    //var customAssimpLibraryNameContainer = new CustomAssimpLibraryNameContainer();
+                    //customAssimpLibraryNameContainer.SetCustomWindows86Path(@"C:\Assimp\Assimp32.dll");
+                    //customAssimpLibraryNameContainer.SetCustomWindows64Path(@"C:\Assimp\Assimp64.dll");
+
+                    //var assimpApi = new Silk.NET.Assimp.Assimp(Silk.NET.Assimp.Assimp.CreateDefaultContext(customAssimpLibraryNameContainer.GetLibraryName()));
+                    //_dxAssimpImporter = new DXAssimpImporter(MainDXViewportView.DXScene.DXDevice, assimpApi);
+
+
+                    // Use default Assimp native library:
                     _dxAssimpImporter = new DXAssimpImporter(MainDXViewportView.DXScene.DXDevice);
                 }
                 catch (Exception ex)
@@ -91,12 +101,12 @@ namespace Ab3d.DXEngine.Assimp.Samples
                     return;
                 }
 
-                _dxAssimpImporter.LoggerCallback += delegate (string message, string data)
-                {
-                    LogMessage(message);
-                };
+                //_dxAssimpImporter.LoggerCallback += delegate (string message, string data)
+                //{
+                //    LogMessage(message);
+                //};
 
-                _dxAssimpImporter.IsVerboseLoggingEnabled = true;
+                //_dxAssimpImporter.IsVerboseLoggingEnabled = true;
 
 
                 try
