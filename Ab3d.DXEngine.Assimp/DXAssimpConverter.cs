@@ -161,7 +161,7 @@ namespace Ab3d.DirectX
             if (node == null)
                 return;
 
-            string name = node->MName.AsString;
+            string nodeName = node->MName.AsString;
 
             bool isTransformIdentity = node->MTransformation.IsIdentity;
 
@@ -179,6 +179,18 @@ namespace Ab3d.DirectX
 
                     if (dxMesh != null && dxMaterial != null)
                     {
+                        string name;
+
+                        var meshName = mesh->MName.AsString;
+                        if (!string.IsNullOrEmpty(nodeName) && !string.IsNullOrEmpty(meshName))
+                            name = nodeName + '-' + meshName;
+                        else if (!string.IsNullOrEmpty(nodeName))
+                            name = nodeName;
+                        else if (!string.IsNullOrEmpty(meshName))
+                            name = meshName;
+                        else
+                            name = "";
+
                         var meshObjectNode = new Ab3d.DirectX.MeshObjectNode(dxMesh, dxMaterial, name);
 
                         if (!isTransformIdentity)
@@ -198,10 +210,10 @@ namespace Ab3d.DirectX
                 // So when an assimp node has child nodes and also defines meshes, 
                 // then create MeshObjectNode with the name specified in assimp file
                 // and then create a SceneNode with the name that has "_Group" suffix.
-                if (!string.IsNullOrEmpty(name) && node->MNumMeshes > 0) 
-                    name = name + "_Group";
+                if (!string.IsNullOrEmpty(nodeName) && node->MNumMeshes > 0)
+                    nodeName = nodeName + "_Group";
                     
-                var sceneNode = new SceneNode(name);
+                var sceneNode = new SceneNode(nodeName);
 
                 if (!isTransformIdentity)
                     sceneNode.Transform = new Transformation(ToSharpDXMatrix(node->MTransformation));
@@ -211,8 +223,8 @@ namespace Ab3d.DirectX
                 for (int i = 0; i < node->MNumChildren; i++)
                     ConvertNodes(assimpScene, node->MChildren[i], sceneNode);
 
-                if (!string.IsNullOrEmpty(name))
-                    NamedObjects[name] = sceneNode;
+                if (!string.IsNullOrEmpty(nodeName))
+                    NamedObjects[nodeName] = sceneNode;
             }
         }
 
