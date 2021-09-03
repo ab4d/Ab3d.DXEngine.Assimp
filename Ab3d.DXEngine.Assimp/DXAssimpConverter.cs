@@ -327,6 +327,9 @@ namespace Ab3d.DirectX
                 if (!string.IsNullOrEmpty(textureFileName) && TextureLoader != null)
                     TextureLoader(standardMaterial, textureFileName, wrapMode, blendFactor);
 
+                if (standardMaterial.Alpha < 1)
+                    standardMaterial.HasTransparency = true;
+
                 _allMaterials[i] = standardMaterial;
             }
         }
