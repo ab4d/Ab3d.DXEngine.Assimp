@@ -5,9 +5,9 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>Ab3d.DXEngine.Assimp</AssemblyName>
     <RootNamespace>Ab3d.DXEngine.Assimp</RootNamespace>
-    <Version>1.0.7876</Version>
-    <AssemblyVersion>1.0.7876.2050</AssemblyVersion>
-    <FileVersion>1.0.7876.2050</FileVersion>    
+    <Version>1.1.7934</Version>
+    <AssemblyVersion>1.1.7934.2050</AssemblyVersion>
+    <FileVersion>1.1.7934.2050</FileVersion>    
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
