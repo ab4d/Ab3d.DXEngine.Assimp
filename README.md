@@ -22,8 +22,7 @@ The samples for Ab3d.DXEngine can be found in the [Ab3d.DXEngine.Wpf.Samples](ht
 
 ## Known issues
 
-* **Only 64 bit process** is supported because the Silk.NET.Assimp does not correctly call assimp function when using 32 bit process.
-* Silk.NET.Assimp depends on Ultz.Native.Assimp library that should copy the native assimp library into the application's output folder. But this works only for .Net Core and .Net 5.0 project and not for .Net Framework project. To solve that the sample for .Net framework project manually copies the native Assimp library dll to output folder.
+* Silk.NET.Assimp depends on Ultz.Native.Assimp library that should copy the native assimp library into the application's output folder. But this works only for .Net Core and .Net 5.0 project and not for .Net Framework project. To solve that the sample for .Net framework project manually copies the native Assimp library dlls to output folder.
 
 
 ## Repository projects

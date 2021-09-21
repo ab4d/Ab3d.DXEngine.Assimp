@@ -28,7 +28,7 @@
     <PackageReference Include="Ab3d.PowerToys" Version="9.6.7848" />
     <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
     <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
-    <PackageReference Include="Silk.NET.Assimp" Version="2.6.0" />
+    <PackageReference Include="Silk.NET.Assimp" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assimp version.txt" />
+    <None Remove="Assimp32.dll" />
     <None Remove="Assimp64.dll" />
     <None Remove="packages.config" />
     <None Remove="Resources\dragon_vrip_res3.obj" />
