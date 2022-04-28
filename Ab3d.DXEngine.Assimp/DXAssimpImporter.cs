@@ -312,7 +312,11 @@ namespace Ab3d.DirectX
             try
             {
                 AttachLogger();
-                assimpScene = _assimp.ImportFileFromMemory(fileBytes, (uint) fileStream.Length, (uint) usedPostProcessSteps, formatHint);
+
+                fixed (byte* fileBytesPtr = fileBytes)
+                {
+                    assimpScene = _assimp.ImportFileFromMemory(fileBytesPtr, (uint)fileStream.Length, (uint)usedPostProcessSteps, formatHint);
+                }
 
                 LogMessage("Import complete");
             }
