@@ -548,7 +548,10 @@ namespace Ab3d.DirectX
                 throw new ObjectDisposedException("Cannot use disposed DXAssimpImporter");
         }
 
-        private void DisposeAssimpScene()
+        /// <summary>
+        /// Dispose the native Assimp objects
+        /// </summary>
+        public void DisposeAssimpScene()
         {
             if (ImportedAssimpScene != null)
             {

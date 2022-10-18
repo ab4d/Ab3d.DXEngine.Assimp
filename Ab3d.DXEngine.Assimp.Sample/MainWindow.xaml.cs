@@ -162,6 +162,7 @@ namespace Ab3d.DXEngine.Assimp.Samples
                 _loadedFileName = fileName; // This is needed to get file folder to read textures
 
                 _readSceneNodes = _dxAssimpImporter.ReadSceneNodes(fileName);
+                _dxAssimpImporter.DisposeAssimpScene(); // Dispose the native Assimp objects after they are converted into DXEngine objects
 
                 // IMPORT FROM STREAM:
                 //

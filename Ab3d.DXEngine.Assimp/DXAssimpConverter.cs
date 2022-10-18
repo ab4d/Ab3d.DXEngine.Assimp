@@ -193,6 +193,8 @@ namespace Ab3d.DirectX
 
                         var meshObjectNode = new Ab3d.DirectX.MeshObjectNode(dxMesh, dxMaterial, name);
 
+                        dxMesh.Dispose(); // reduce reference count on the dxMesh from 2 to 1 so that when the MeshObjectNode will be disposed, it will also dispose the mesh
+
                         if (!isTransformIdentity)
                             meshObjectNode.Transform = new Transformation(ToSharpDXMatrix(node->MTransformation));
 
@@ -270,7 +272,7 @@ namespace Ab3d.DirectX
                             break;
                         
                         case Assimp.MaterialOpacityBase:
-                            if (materialProperty->MType == PropertyTypeInfo.PtiFloat)
+                            if (materialProperty->MType == PropertyTypeInfo.Float)
                                 standardMaterial.Alpha = *(float*)materialProperty->MData;
                             break;
 
@@ -287,12 +289,12 @@ namespace Ab3d.DirectX
                             break;
                         
                         case Assimp.MaterialShininessBase:
-                            if (materialProperty->MType == PropertyTypeInfo.PtiFloat)
+                            if (materialProperty->MType == PropertyTypeInfo.Float)
                                 standardMaterial.SpecularPower = *(float*)materialProperty->MData;
                             break;
 
                         case Assimp.MaterialShininessStrengthBase:
-                            if (materialProperty->MType == PropertyTypeInfo.PtiFloat)
+                            if (materialProperty->MType == PropertyTypeInfo.Float)
                             {
                                 var shininessStrength = *(float*)materialProperty->MData;
                                 standardMaterial.SpecularColor = new Color3(shininessStrength, shininessStrength, shininessStrength);
@@ -311,13 +313,13 @@ namespace Ab3d.DirectX
                         case Assimp.MaterialMappingmodeUBase:
                         case Assimp.MaterialMappingmodeVBase:
                             // aiTextureMapMode: http://assimp.sourceforge.net/lib_html/material_8h.html#a6cbe56056751aa80e8dd714632a49de0
-                            if (materialProperty->MType == PropertyTypeInfo.PtiInteger)
+                            if (materialProperty->MType == PropertyTypeInfo.Integer)
                                 wrapMode = *(TextureWrapMode*)materialProperty->MData;
 
                             break;
 
                         case Assimp.MaterialTexblendBase:
-                            if (materialProperty->MType == PropertyTypeInfo.PtiFloat)
+                            if (materialProperty->MType == PropertyTypeInfo.Float)
                                 blendFactor = *(float*)materialProperty->MData;
                             break;
 
@@ -372,8 +374,25 @@ namespace Ab3d.DirectX
 
                 var bounds = Bounds.Empty;
 
+                if (normals != null && textureCoordinates != null)
+                {
+                    // Optimized loop with positions, normals and textureCoordinates
+                    for (int j = 0; j < positionsCount; j++)
+                    {
+                        System.Numerics.Vector3 onePosition = vertices[j];
+                        var dxPosition = new SharpDX.Vector3(onePosition.X, onePosition.Y, onePosition.Z);
+                        vertexBufferArray[j].Position = dxPosition;
 
-                if (normals == null && textureCoordinates == null)
+                        bounds.Add(dxPosition);
+
+                        System.Numerics.Vector3 oneNormal = normals[j];
+                        vertexBufferArray[j].Normal = new SharpDX.Vector3(oneNormal.X, oneNormal.Y, oneNormal.Z);
+
+                        System.Numerics.Vector3 oneTextureCoordinate = textureCoordinates[j];
+                        vertexBufferArray[j].TextureCoordinate = new SharpDX.Vector2(oneTextureCoordinate.X, oneTextureCoordinate.Y);
+                    }
+                }
+                else if (normals == null && textureCoordinates == null)
                 {
                     // Optimized loop with only positions
                     for (int j = 0; j < positionsCount; j++)
@@ -573,7 +592,7 @@ namespace Ab3d.DirectX
             string assimpString = null;
 
             // Assimp string starts with string length and then data follows
-            if (materialProperty->MType == PropertyTypeInfo.PtiString && materialProperty->MDataLength > 4) // 4 bytes for string length
+            if (materialProperty->MType == PropertyTypeInfo.String && materialProperty->MDataLength > 4) // 4 bytes for string length
             {
                 int length = *(int*)materialProperty->MData;
 
@@ -589,7 +608,7 @@ namespace Ab3d.DirectX
 
         private static unsafe Color3 ReadColor3(MaterialProperty* materialProperty)
         {
-            if (materialProperty->MType == PropertyTypeInfo.PtiFloat &&
+            if (materialProperty->MType == PropertyTypeInfo.Float &&
                 (materialProperty->MDataLength == 12 || materialProperty->MDataLength == 16))
             {
                 float red   = *(float*)materialProperty->MData;
