@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>Ab3d.DXEngine.Assimp.Samples</AssemblyName>
     <RootNamespace>Ab3d.DXEngine.Assimp.Samples</RootNamespace>
     <Version>1.1.7934</Version>
     <AssemblyVersion>1.1.7934.2050</AssemblyVersion>
-    <FileVersion>1.1.7934.2050</FileVersion>    
+    <FileVersion>1.1.7934.2050</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,12 +23,12 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Ab3d.DXEngine" Version="5.0.8000" />
-    <PackageReference Include="Ab3d.DXEngine.Wpf" Version="5.0.8000" />
-    <PackageReference Include="Ab3d.PowerToys" Version="10.0.8000" />
+    <PackageReference Include="Ab3d.DXEngine" Version="5.1.8153" />
+    <PackageReference Include="Ab3d.DXEngine.Wpf" Version="5.1.8153" />
+    <PackageReference Include="Ab3d.PowerToys" Version="10.1.8147" />
     <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
     <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
-    <PackageReference Include="Silk.NET.Assimp" Version="2.15.0" />
+    <PackageReference Include="Silk.NET.Assimp" Version="2.16.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,7 +83,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.net50.csproj" />
+    <ProjectReference Include="..\Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.net60.csproj" />
   </ItemGroup>
 
   <ItemGroup>

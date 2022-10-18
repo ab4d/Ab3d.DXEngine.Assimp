@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ab3d.DXEngine.Assimp.Samples.net50", "Ab3d.DXEngine.Assimp.Sample\Ab3d.DXEngine.Assimp.Samples.net50.csproj", "{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ab3d.DXEngine.Assimp.Samples.net60", "Ab3d.DXEngine.Assimp.Sample\Ab3d.DXEngine.Assimp.Samples.net60.csproj", "{92D70AEA-A466-4F8D-82F5-9BFB87843BEC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ab3d.DXEngine.Assimp.net50", "Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.net50.csproj", "{55AC0B5B-2076-451F-AA80-15DABA2F4397}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ab3d.DXEngine.Assimp.net60", "Ab3d.DXEngine.Assimp\Ab3d.DXEngine.Assimp.net60.csproj", "{55AC0B5B-2076-451F-AA80-15DABA2F4397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
