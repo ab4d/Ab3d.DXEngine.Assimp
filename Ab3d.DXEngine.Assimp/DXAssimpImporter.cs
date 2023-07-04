@@ -97,17 +97,42 @@ namespace Ab3d.DirectX
                 {
                     var major = (int)_assimp.GetVersionMajor();
                     var minor = (int)_assimp.GetVersionMinor();
-                    var revision = (int)_assimp.GetVersionRevision();
+                    var patch = (int)_assimp.GetVersionPatch();
 
-                    if (revision < 0) // revision may be negative
-                        revision = 0;
-
-                    _assimpVersion = new Version(major, minor, revision);
+                    _assimpVersion = new Version(major, minor, patch);
                 }
 
                 return _assimpVersion;
             }
         }
+
+
+        private uint _gitCommitHash;
+
+        /// <summary>
+        /// Gets the Git commit hash that was generated from the latest source code commit.
+        /// </summary>
+        public uint GitCommitHash
+        {
+            get
+            {
+                if (_gitCommitHash == 0)
+                {
+                    try
+                    {
+                        _gitCommitHash = _assimp.GetVersionRevision();
+                    }
+                    catch
+                    {
+                        _gitCommitHash = 0;
+                    }
+                }
+
+                return _gitCommitHash;
+            }
+        }
+
+
 
         private static AssimpFormatInfo[] _supportedImportFormats;
         private static string[] _supportedImportFileExtensions;

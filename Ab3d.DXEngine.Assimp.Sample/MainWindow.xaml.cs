@@ -116,8 +116,7 @@ namespace Ab3d.DXEngine.Assimp.Samples
                     var supportedImportFormats = _dxAssimpImporter.SupportedImportFormats;
                     var supportedImportFileExtensions = _dxAssimpImporter.SupportedImportFileExtensions;
 
-                    InfoTextBox.Text = $"Assimp native library version: {assimpVersion}\r\nSupported import formats:\r\n" + string.Join(", ", supportedImportFileExtensions);
-
+                    InfoTextBox.Text = $"Assimp native library version: {assimpVersion}; Git commit: {_dxAssimpImporter.GitCommitHash:x7}\r\nSupported import formats:\r\n" + string.Join(", ", supportedImportFileExtensions);
 
                     //string startUpFileName = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Resources\duck.dae");
                     //LoadModel(startUpFileName);
