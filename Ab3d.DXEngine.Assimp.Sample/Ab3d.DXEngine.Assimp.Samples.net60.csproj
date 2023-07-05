@@ -6,9 +6,9 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>Ab3d.DXEngine.Assimp.Samples</AssemblyName>
     <RootNamespace>Ab3d.DXEngine.Assimp.Samples</RootNamespace>
-    <Version>1.1.7934</Version>
-    <AssemblyVersion>1.1.7934.2050</AssemblyVersion>
-    <FileVersion>1.1.7934.2050</FileVersion>
+    <Version>6.0.8585</Version>
+    <AssemblyVersion>6.0.8585.2050</AssemblyVersion>
+    <FileVersion>6.0.8585.2050</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,9 +23,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Ab3d.DXEngine" Version="5.1.8153" />
-    <PackageReference Include="Ab3d.DXEngine.Wpf" Version="5.1.8153" />
-    <PackageReference Include="Ab3d.PowerToys" Version="10.1.8147" />
+    <PackageReference Include="Ab3d.DXEngine" Version="6.0.8585" />
+    <PackageReference Include="Ab3d.DXEngine.Wpf" Version="6.0.8585" />
+    <PackageReference Include="Ab3d.PowerToys" Version="11.0.8585" />
     <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
     <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
     <PackageReference Include="Silk.NET.Assimp" Version="2.17.1" />
